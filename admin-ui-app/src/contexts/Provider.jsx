@@ -137,6 +137,7 @@ export const GlobalProvider = ({ children }) => {
   const searchParam = ["name", "email", "role"];
   const [checkedUsers, setCheckedUsers] = useState({});
 
+
   useEffect(() => {
     async function company() {
       try {
@@ -154,7 +155,6 @@ export const GlobalProvider = ({ children }) => {
     company();
   }, []);
 
-  // console.log(checkedUsers);
 
   const handleCheckboxChange = (event) => {
     setCheckedUsers({
@@ -167,6 +167,7 @@ export const GlobalProvider = ({ children }) => {
     const newCheckedUsers = {};
 
     if (event.target.checked) {
+      
       company.forEach((item) => {
         newCheckedUsers[item.id] = true;
       });
@@ -178,17 +179,15 @@ export const GlobalProvider = ({ children }) => {
 
     setCheckedUsers(newCheckedUsers);
   };
-  //______________________________________
 
   const onSearchChange = (e) => {
     setQuery(e.target.value);
   };
 
-  const searchResult = company.filter((user) => {
-    return searchParam.some((x) => {
-      return user[x].toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
-    });
-  });
+  const searchResult = company.filter((user) =>
+  user.name.toLowerCase().includes(query.toLowerCase()) ||
+  user.email.toLowerCase().includes(query.toLowerCase()) ||
+  user.role.toLowerCase().includes(query.toLowerCase()));
 
   const [editFormData, setEditFormData] = useState({
     name: "",

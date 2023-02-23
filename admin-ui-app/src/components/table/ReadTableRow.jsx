@@ -26,7 +26,6 @@ const ReadTableRow = ({ user, handleEditClick, handleDeleteClick, checkedUsers,h
           <button
             className={style.delete_btn}
             onClick={() => handleDeleteClick(user.id)}
-            // onClick={()=>handleDelete(id)}
           >
             <FaTrashAlt />
           </button>

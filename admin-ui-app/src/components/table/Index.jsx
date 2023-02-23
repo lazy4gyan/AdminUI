@@ -4,7 +4,7 @@ import EditTableRow from "./EditTableRow";
 import ReadTableRow from "./ReadTableRow";
 import style from "./style.module.scss";
 
-const AdminTable = () => {
+const AdminTable = ({ companyUser }) => {
   const {
     company,
     editUserId,
@@ -15,11 +15,12 @@ const AdminTable = () => {
     handleEditClick,
     handleDeleteClick,
     checkedUsers,
-        handleCheckAll,
-        handleCheckboxChange,
-        deleteSelectedCheckbox,
-    errorMessage
+    handleCheckAll,
+    handleCheckboxChange,
+    deleteSelectedCheckbox,
+    errorMessage,
   } = useContext(GlobalContext);
+
 
   return (
     <>
@@ -28,7 +29,7 @@ const AdminTable = () => {
           <thead>
             <tr>
               <th>
-                <input type="checkbox"  onChange={handleCheckAll} />
+                <input type="checkbox" onChange={handleCheckAll} />
               </th>
               <th>Name</th>
               <th>Email</th>
@@ -37,8 +38,8 @@ const AdminTable = () => {
             </tr>
           </thead>
           <tbody>
-            {company.map((user) => (
-              <Fragment>
+            {companyUser.map((user,idx) => (
+              <Fragment key={idx}>
                 {editUserId === user.id ? (
                   <EditTableRow
                     editFormData={editFormData}
@@ -58,7 +59,7 @@ const AdminTable = () => {
             ))}
           </tbody>
         </table>
-        <button onClick={deleteSelectedCheckbox}>Delete</button>
+        <button className={style.delete} onClick={deleteSelectedCheckbox}>Delete</button>
       </form>
     </>
   );

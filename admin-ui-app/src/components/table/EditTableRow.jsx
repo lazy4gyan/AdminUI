@@ -10,7 +10,7 @@ const EditTableRow = ({
   return (
     <tr>
       <td>
-        <input type="checkbox" id="" name="" value="" />
+        <input type="checkbox" id="" name="" />
       </td>
       <td>
         <input
