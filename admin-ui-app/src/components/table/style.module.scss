@@ -1,0 +1,79 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  table {
+    display: grid;
+    border-collapse: collapse;
+    min-width: 100%;
+    grid-template-columns:
+    minmax(50px, 1fr)
+    minmax(150px, 2fr)
+    minmax(150px, 2fr)
+    minmax(90px, .8fr)
+    minmax(110px, 1fr);
+  }    
+  
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+  
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  th {
+    position: sticky;
+    top: 0;
+    background: #6c7ae0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  th:last-child {
+    border: 0;
+  }
+  
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #808080;
+    text-align: left;
+  }
+  
+  tr:nth-child(even) td {
+    background: #f8f6ff;
+  }
+  
+  .edit_btn{
+    border:none;
+    background-color: transparent;
+    color: #808080;
+    cursor:pointer;
+    margin-right:1rem;
+    font-size: 1rem;
+  }
+  
+  .delete_btn{
+    border:none;
+    background-color: transparent;
+    cursor:pointer;
+    color:red;
+    font-size: 1rem;
+  
+  }
+  
