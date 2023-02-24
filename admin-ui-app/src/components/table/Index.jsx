@@ -1,4 +1,5 @@
 import { Fragment, useContext, useEffect, useState } from "react";
+import { FaTrashAlt } from "react-icons/fa";
 import { GlobalContext } from "../../contexts/Provider";
 import EditTableRow from "./EditTableRow";
 import ReadTableRow from "./ReadTableRow";
@@ -29,7 +30,7 @@ const AdminTable = ({ companyUser }) => {
           <thead>
             <tr>
               <th>
-                <input type="checkbox" onChange={handleCheckAll} />
+                <input type="checkbox"  onChange={handleCheckAll} />
               </th>
               <th>Name</th>
               <th>Email</th>
@@ -59,7 +60,11 @@ const AdminTable = ({ companyUser }) => {
             ))}
           </tbody>
         </table>
-        <button className={style.delete} onClick={deleteSelectedCheckbox}>Delete</button>
+        <button 
+            className={`${style.delete} ${style.button_reset}`}
+         onClick={deleteSelectedCheckbox}>
+          <FaTrashAlt/> Delete
+          </button>
       </form>
     </>
   );

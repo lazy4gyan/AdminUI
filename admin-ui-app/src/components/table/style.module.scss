@@ -1,17 +1,9 @@
+  // Table styling
 
-* {
-    box-sizing: border-box;
-  }
-  
-  html,
-  body {
-    padding: 0;
-    margin: 0;
-  }
-  
   table {
     display: grid;
     border-collapse: collapse;
+    margin-bottom: 1rem;
     min-width: 100%;
     grid-template-columns:
     minmax(50px, 1fr)
@@ -19,6 +11,7 @@
     minmax(150px, 2fr)
     minmax(90px, .8fr)
     minmax(110px, 1fr);
+    border:2px solid #1ABC9C;
   }    
   
   thead,
@@ -37,9 +30,9 @@
   th {
     position: sticky;
     top: 0;
-    background: #6c7ae0;
+    background: #1ABC9C;
     text-align: left;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 1.1rem;
     color: white;
   }
@@ -51,50 +44,85 @@
   td {
     padding-top: 10px;
     padding-bottom: 10px;
-    color: #808080;
+    font-weight:300;
+    color: #000000;
     text-align: left;
   }
   
   tr:nth-child(even) td {
-    background: #f8f6ff;
+    background: #ECF0F1;
+  }
+
+  // Buttons styling
+
+  .SUCCESS{
+    color: #2c761e;
+    margin-right:1rem;
+    background-color: transparent;
+
+
+  }
+
+  .REJECT{
+    color:#2c2e2d;
+    font-weight: 700;
+    background-color: transparent;
+
   }
   
   .edit_btn{
-    border:none;
     background-color: transparent;
     color: #808080;
-    cursor:pointer;
     margin-right:1rem;
     font-size: 1rem;
   }
   
   .delete_btn{
-    border:none;
     background-color: transparent;
     cursor:pointer;
-    color:red;
+    color:rgb(187, 56, 56);
     font-size: 1rem;
   
   }
 
   .delete {
-    display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
-    background-color: #007bff;
-    border: none;
-    cursor: pointer;
+    background-color: #dc2e2e;
   }
   
   .delete:hover {
-    background-color: #0069d9;
+    background-color: #e64b36;
   }
   
   .delete:active {
-    background-color: #0053a3;
+    background-color: #d14020;
   }
+
+  .button_reset{
+    border: none;
+    cursor: pointer;
+  }
+
+  // Input Styling
+  .name_input{
+    padding:.2rem;
+    border-color: #a9a9a9;
+  }
+  .email_input{
+    padding:.2rem;
+    border-color: #a9a9a9;
+
+  }
+  .role_input{
+    max-width:8.25rem;
+    padding:.2rem;
+    border-color: #a9a9a9;
+  }
+
+  
   
   

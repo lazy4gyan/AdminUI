@@ -1,5 +1,7 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
+import { RxCross1 } from "react-icons/rx";
+
 import style from "./style.module.scss";
 
 const EditTableRow = ({
@@ -14,6 +16,7 @@ const EditTableRow = ({
       </td>
       <td>
         <input
+          className={style.name_input}
           type="text"
           required="required"
           placeholder="Enter a name..."
@@ -24,6 +27,7 @@ const EditTableRow = ({
       </td>
       <td>
         <input
+          className={style.email_input}
           type="text"
           required="required"
           placeholder="Enter an email..."
@@ -34,6 +38,7 @@ const EditTableRow = ({
       </td>
       <td>
         <input
+          className={style.role_input}
           type="text"
           required="required"
           placeholder="Enter a role..."
@@ -43,11 +48,16 @@ const EditTableRow = ({
         />
       </td>
       <td className={style.btn_container}>
-        <button type="submit">
+        <button 
+            className={`${style.SUCCESS} ${style.button_reset}`}
+        type="submit">
           <FaCheck />
         </button>
-        <button type="button" onClick={handleCancelClick}>
-          Cancel
+        <button 
+            className={`${style.REJECT} ${style.button_reset}`}
+        type="button" onClick={handleCancelClick}>
+          {/* Cancel */}
+          <RxCross1/>
         </button>
       </td>
     </tr>

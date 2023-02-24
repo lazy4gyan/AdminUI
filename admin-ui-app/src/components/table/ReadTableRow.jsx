@@ -11,20 +11,19 @@ const ReadTableRow = ({ user, handleEditClick, handleDeleteClick, checkedUsers,h
         </td>
         <td>{name}</td>
         <td
-        //  title={user.email}
         >
           {email}
         </td>
         <td>{role.charAt(0).toUpperCase() + role.slice(1)}</td>
         <td className={style.btn_container}>
           <button
-            className={style.edit_btn}
+            className={`${style.edit_btn} ${style.button_reset}`}
             onClick={(event) => handleEditClick(event, user)}
           >
             <FaEdit />
           </button>
           <button
-            className={style.delete_btn}
+            className={`${style.delete_btn} ${style.button_reset}`}
             onClick={() => handleDeleteClick(user.id)}
           >
             <FaTrashAlt />

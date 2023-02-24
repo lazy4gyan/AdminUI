@@ -3,6 +3,7 @@ import Pagination from "../components/pagination/Index";
 import Search from "../components/search/Index";
 import AdminTable from "../components/table/Index";
 import { GlobalContext } from "../contexts/Provider";
+import "./style.scss"
 
 const AdminPage = () => {
   const globalStore = useContext(GlobalContext);
@@ -28,9 +29,9 @@ const AdminPage = () => {
   const endIndex = startIndex + itemsPerPage;
   const companyUser = items.slice(startIndex, endIndex);
   return (
-    <section style={{ margin: "1rem" }}>
+    <section className="page_container" >
       <Search />
-      <div style={{ marginTop: "2rem" }}>
+      <div className="table_container">
         <AdminTable companyUser={companyUser} />
         <Pagination
           currentPage={currentPage}
