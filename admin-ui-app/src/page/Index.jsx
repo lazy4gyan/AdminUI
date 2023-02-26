@@ -30,7 +30,7 @@ const AdminPage = () => {
   const companyUser = items.slice(startIndex, endIndex);
   return (
     <section className="page_container">
-      {company.length > 0 ? (
+      {!errorMessage ? (
         <>
           <Search />
           <div className="table_container">

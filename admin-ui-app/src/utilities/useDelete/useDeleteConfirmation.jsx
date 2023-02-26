@@ -3,7 +3,7 @@ import "./useDeleteStyle.scss"
 const DeleteConfirmation = ({ onCancel, onDelete }) => {
   return (
     <div className="delete-confirmation">
-      <h2 className="dialog-container">Are you sure you want to delete records?</h2>
+      <h4 className="dialog-container">Are you sure you want to delete records?</h4>
       <div className="buttons">
         <button className="cancel-button" onClick={onCancel}>
           Cancel

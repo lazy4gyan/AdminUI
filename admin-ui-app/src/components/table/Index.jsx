@@ -26,57 +26,63 @@ const AdminTable = ({ companyUser }) => {
   } = useContext(GlobalContext);
   return (
     <>
-      <form onSubmit={handleEditFormSubmit}>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <input type="checkbox" onChange={handleCheckAll} />
-              </th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {companyUser.map((user, idx) => (
-              <Fragment key={idx}>
-                {editUserId === user.id ? (
-                  <EditTableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadTableRow
-                    user={user}
-                    checkedUsers={checkedUsers}
-                    handleCheckboxChange={handleCheckboxChange}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </Fragment>
-            ))}
-          </tbody>
-        </table>
-        {Object.values(checkedUsers).includes(true) && (
-          <button
-            className={`${style.delete} ${style.button_reset}`}
-            onClick={() => setShowConfirmation(true)}
-          >
-            <FaTrashAlt /> Delete
-          </button>
-        )}
-        {showConfirmation && (
-          <DeleteConfirmation
-            onCancel={() => setShowConfirmation(false)}
-            onDelete={deleteSelectedCheckbox}
-          />
-        )}
-      </form>
-      <ToastContainer />
+      {companyUser.length === 0 ? (
+        <p style={{display:"flex",justifyContent:"center",alignItems:"center",height:"75vh"}}>No data available.</p>
+      ) : (
+        <>
+          <form onSubmit={handleEditFormSubmit}>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <input type="checkbox" onChange={handleCheckAll} />
+                  </th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {companyUser.map((user, idx) => (
+                  <Fragment key={idx}>
+                    {editUserId === user.id ? (
+                      <EditTableRow
+                        editFormData={editFormData}
+                        handleEditFormChange={handleEditFormChange}
+                        handleCancelClick={handleCancelClick}
+                      />
+                    ) : (
+                      <ReadTableRow
+                        user={user}
+                        checkedUsers={checkedUsers}
+                        handleCheckboxChange={handleCheckboxChange}
+                        handleEditClick={handleEditClick}
+                        handleDeleteClick={handleDeleteClick}
+                      />
+                    )}
+                  </Fragment>
+                ))}
+              </tbody>
+            </table>
+            {Object.values(checkedUsers).includes(true) && (
+              <button
+                className={`${style.delete} ${style.button_reset}`}
+                onClick={() => setShowConfirmation(true)}
+              >
+                <FaTrashAlt /> Delete
+              </button>
+            )}
+            {showConfirmation && (
+              <DeleteConfirmation
+                onCancel={() => setShowConfirmation(false)}
+                onDelete={deleteSelectedCheckbox}
+              />
+            )}
+          </form>
+          <ToastContainer />
+        </>
+      )}
     </>
   );
 };
