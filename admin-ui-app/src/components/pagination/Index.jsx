@@ -1,4 +1,3 @@
-import React from "react";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import style from "./style.module.scss";
 
@@ -15,7 +14,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <FaLessThan/>
+        <FaLessThan />
       </button>
       {pageNumbers.map((pageNumber) => (
         <button
@@ -33,7 +32,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <FaGreaterThan/>
+        <FaGreaterThan />
       </button>
     </div>
   );

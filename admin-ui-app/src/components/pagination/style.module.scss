@@ -30,7 +30,7 @@
   cursor: not-allowed;
 }
 
-:local(.pagination_active)  {
+:local(.pagination_active) {
   background-color: #007bff;
   color: #fff;
 }
@@ -38,9 +38,3 @@
 .pagination_ellipsis {
   margin: 0 5px;
 }
-
-// @media only screen and (max-width: 576px) {
-//   .pagination_button {
-//     padding: 8px 10px;
-//   }
-// }

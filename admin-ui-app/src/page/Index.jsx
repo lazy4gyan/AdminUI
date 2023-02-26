@@ -1,15 +1,16 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import Pagination from "../components/pagination/Index";
 import Search from "../components/search/Index";
 import AdminTable from "../components/table/Index";
 import { GlobalContext } from "../contexts/Provider";
-import "./style.scss"
+import ErrorPage from "./ErrorPage";
+import "./style.scss";
 
 const AdminPage = () => {
   const globalStore = useContext(GlobalContext);
-  const { company, searchResult } = globalStore;
+  const { company, errorMessage, searchResult } = globalStore;
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const itemsPerPage = 10;
   const items = searchResult ? searchResult : company;
   const totalItems = items.length;
@@ -24,21 +25,26 @@ const AdminPage = () => {
     }
     setCurrentPage(pageNumber);
   };
-
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const companyUser = items.slice(startIndex, endIndex);
   return (
-    <section className="page_container" >
-      <Search />
-      <div className="table_container">
-        <AdminTable companyUser={companyUser} />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
-      </div>
+    <section className="page_container">
+      {company.length > 0 ? (
+        <>
+          <Search />
+          <div className="table_container">
+            <AdminTable companyUser={companyUser} />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        </>
+      ) : (
+        <ErrorPage errorMessage={errorMessage} />
+      )}
     </section>
   );
 };

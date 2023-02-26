@@ -1,4 +1,3 @@
-import "./App.scss";
 import AdminPage from "./page/Index";
 
 function App() {
